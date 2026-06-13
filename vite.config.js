@@ -20,6 +20,6 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: '/Users/ingyeom/Documents/Source/IntelliJ/KB/project/FInNS-BackEnd/src/main/webapp/resources'
+    outDir: 'dist'
   },
 });

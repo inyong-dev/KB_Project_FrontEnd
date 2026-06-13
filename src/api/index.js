@@ -6,6 +6,18 @@ const instance = axios.create({
   timeout: 30000,
 });
 
+// 요청 인터셉터 - JWT 토큰을 Authorization 헤더에 추가
+instance.interceptors.request.use(
+  (config) => {
+    const auth = JSON.parse(localStorage.getItem('auth') || '{}');
+    if (auth.token) {
+      config.headers.Authorization = `Bearer ${auth.token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
 // 응답 인터셉터
 instance.interceptors.response.use(
   (response) => {
