@@ -40,9 +40,11 @@ export const useAuthStore = defineStore('auth', () => {
         token: data.token,
         user: {
           ...data.user,
-          user_no: data.user.user_no,
+          userNo: data.user.user_no || data.user.userNo,
+          userName: data.user.userName || data.user.username,
+          mbtiName: data.user.mbtiName || data.user.mbtiName || '',
           birth: moment(data.user.birth).format('YYYY-MM-DD'),
-          renew_time: moment(data.user.renew_time).format(
+          renew_time: moment(data.user.renew_time || data.user.renewTime).format(
             'YYYY-MM-DD HH:mm:ss'
           ),
         },

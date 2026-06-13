@@ -105,12 +105,11 @@ const cr = useRoute();
 const router = useRouter();
 const auth = useAuthStore();
 const member = reactive({
-  username: 'hyuk_kang88',
-  password: '1234',
+  username: '',
+  password: '',
 });
 const error = ref('');
 const disableSubmit = computed(() => !(member.username && member.password));
-localStorage.clear();
 const login = async () => {
   try {
     // console.log('로그인 요청 데이터:', member);
